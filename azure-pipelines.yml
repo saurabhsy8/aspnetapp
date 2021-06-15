@@ -38,4 +38,4 @@ steps:
     repository: 'aspnet'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
-    tags: $(Build.BuildId)
+    tags: $(Build.SourceVersion)
