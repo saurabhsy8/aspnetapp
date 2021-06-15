@@ -38,3 +38,5 @@ steps:
     repository: 'aspnet'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
+    tags: |
+      latest
