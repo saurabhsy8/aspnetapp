@@ -8,7 +8,7 @@ image:
   repository: smartcursorspoc.azurecr.io/aspnet
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "v0.1"
+  tag: "latest"
 
 imagePullSecrets: [name: regcred]
 nameOverride: ""
