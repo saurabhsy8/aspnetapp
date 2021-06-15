@@ -1,5 +1,5 @@
 # https://hub.docker.com/_/microsoft-dotnet
-FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:5.0-windowsservercore-ltsc2019 AS build
 WORKDIR /source
 
 # copy csproj and restore as distinct layers
@@ -13,10 +13,7 @@ WORKDIR /source/aspnetapp
 RUN dotnet publish -c release -o /app -r win-x64 --self-contained false --no-restore
 
 # final stage/image
-# Relies on 5.0 multi-arch tag to pick the same Windows version as the host. 
-# Alternatively, a release specific tag can be used, like: `5.0-nanoserver-1809`
-# Other versions are 20H2 and 2004 (in place of the `1809` substring above)
-FROM mcr.microsoft.com/dotnet/aspnet:5.0
+FROM mcr.microsoft.com/dotnet/aspnet:5.0-windowsservercore-ltsc2019 AS runtime
 WORKDIR /app
 COPY --from=build /app ./
 ENTRYPOINT ["aspnetapp"]

@@ -5,12 +5,12 @@
 replicaCount: 1
 
 image:
-  repository: netdemo.azurecr.io/netdemo
+  repository: smartcursorspoc.azurecr.io/aspnet
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "latest"
+  tag: "v0.1"
 
-imagePullSecrets: [netdemo.azurecr.io]
+imagePullSecrets: [name: regcred]
 nameOverride: ""
 fullnameOverride: ""
 
